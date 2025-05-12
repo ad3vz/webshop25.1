@@ -1,0 +1,20 @@
+.divider{
+    margin-top: 2em;
+}
+
+.wrapper{
+    background-color: #0E1420;
+    width: 100vw;
+    min-height: 100vh;
+    color: white;
+}
+
+body{
+    margin: 0;
+}
+
+.containe{
+    margin: 0;
+    padding-left: 3em;
+    padding-right: 3em;
+}
