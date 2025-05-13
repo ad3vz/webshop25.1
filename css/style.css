@@ -1,10 +1,11 @@
 .divider{
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 .wrapper{
     background-color: #0E1420;
     width: 100vw;
+    height: 100vh;
     color: white;
 }
 
@@ -28,4 +29,26 @@ body{
 
 #coffeetext{
     line-height: 2.5;
+}
+
+#loginForm input, #signupForm input{
+    height: 3rem;
+    width: 20rem;
+    border-radius: 30px;
+}
+
+input#hausnummer{
+    width: 100%;
+}
+
+input#street{
+    width: 100%;
+}
+
+input#plz{
+    width: 100%;
+}
+
+input#ort{
+    width: 100%;
 }
