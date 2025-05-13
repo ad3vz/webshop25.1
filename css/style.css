@@ -5,7 +5,6 @@
 .wrapper{
     background-color: #0E1420;
     width: 100vw;
-    min-height: 100vh;
     color: white;
 }
 
@@ -13,8 +12,20 @@ body{
     margin: 0;
 }
 
-.containe{
-    margin: 0;
-    padding-left: 3em;
-    padding-right: 3em;
+.container{
+    padding: 0 3rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#coffeegirl{
+    padding-left: 2rem;
+}
+
+#titleCappucina{
+    padding-top: 2rem;
+}
+
+#coffeetext{
+    line-height: 2.5;
 }
