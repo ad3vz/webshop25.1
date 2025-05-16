@@ -1,54 +1,24 @@
-.divider{
-    margin-top: 2rem;
+body{
+    background-color: #0E1420;
+    color: white;
+}
+.container{
+    padding-top: 1rem;
 }
 
-.wrapper{
-    background-color: #0E1420;
-    width: 100vw;
-    height: 100vh;
+#signUpForm input{
+    border-radius: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.8rem;
+}
+
+.signUpButton{
+    background-color: red;
+    font-weight: 900;
     color: white;
 }
 
-body{
-    margin: 0;
-}
-
-.container{
-    padding: 0 3rem;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-#coffeegirl{
-    padding-left: 2rem;
-}
-
-#titleCappucina{
-    padding-top: 2rem;
-}
-
-#coffeetext{
-    line-height: 2.5;
-}
-
-#loginForm input, #signupForm input{
-    height: 3rem;
-    width: 20rem;
-    border-radius: 30px;
-}
-
-input#hausnummer{
-    width: 100%;
-}
-
-input#street{
-    width: 100%;
-}
-
-input#plz{
-    width: 100%;
-}
-
-input#ort{
-    width: 100%;
+#login{
+    color: red;
 }
