@@ -6,19 +6,19 @@ body{
     padding-top: 1rem;
 }
 
-#signUpForm input{
+#signUpForm input, #loginForm input{
     border-radius: 15px;
     box-sizing: border-box;
     width: 100%;
     padding: 0.8rem;
 }
 
-.signUpButton{
+.submitButton{
     background-color: red;
     font-weight: 900;
     color: white;
 }
 
-#login{
+.link{
     color: red;
 }
