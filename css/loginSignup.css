@@ -1,0 +1,24 @@
+body{
+    background-color: #0E1420;
+    color: white;
+}
+.container{
+    padding-top: 1rem;
+}
+
+#signUpForm input, #loginForm input{
+    border-radius: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.8rem;
+}
+
+.submitButton{
+    background-color: red;
+    font-weight: 900;
+    color: white;
+}
+
+.link{
+    color: red;
+}
