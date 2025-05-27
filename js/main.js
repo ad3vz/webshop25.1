@@ -1,72 +1,72 @@
 import { products } from './database.js';
 
-function load_products(){
-    const productsContainer = document.getElementById('product-container');
-    if(!productsContainer){
-        console.error("Element mit ID 'product-container' nicht gefunden.");
-        return;
-    }
+function load_product_card(){
 
-    let currentProductIndex = 0;
+    //products container
+    const prodContainer = document.getElementById('product-container');
+
+    let productIndex = 0;
     const productsPerRow = 3;
 
-    while(currentProductIndex < products.length){
-        const productRow = document.createElement('div');
-        productRow.className='row cmb';
+    while(productIndex < products.length){
+        const prodRow = document.createElement('div');
+        prodRow.className = 'row';
 
-        for(let i = 0; i < productsPerRow; i++){
-            if(currentProductIndex<products.length){
-                const product = products[currentProductIndex];
-                const plusButton = create_buttons('fa-plus');
-                const minusButton = create_buttons('fa-minus');
+        for(let i = 0; i < productsPerRow; i ++){
+            if(productIndex < products.length){
+                const product = products[productIndex];
 
-                const productCol = document.createElement('div');
-                productCol.className = 'col imageContainer';
+                //col for ONE product
+                const prodCol = document.createElement('div');
+                prodCol.className = 'col-12 col-sm-4 product-card-col';
 
-                // Bildbereich
+                //picture
                 const imgWrapper = document.createElement('div');
-                imgWrapper.className = 'row';
-                const imgCol = document.createElement('div');
-                imgCol.className = 'col';
-                const productImg = document.createElement('img');
-                productImg.src = product.image;
-                productImg.className = 'productPicture';
-                imgCol.appendChild(productImg);
-                imgWrapper.appendChild(imgCol);
-                productCol.appendChild(imgWrapper);
+                imgWrapper.className = 'imgWrapper';
+                const prodImg = document.createElement('img');
+                prodImg.src = product.image;
+                imgWrapper.appendChild(prodImg);
+                prodCol.appendChild(imgWrapper);
 
-               //Buttons
-               const btnWrapper = document.createElement('div');
-               btnWrapper.className = 'row';
-               const leftBtn = document.createElement('div');
-               leftBtn.className = 'col-6';
-               leftBtn.appendChild(plusButton);
-               const rightBtn = document.createElement('div');
-               rightBtn.className = 'col-6';
-               rightBtn.appendChild(minusButton);
-               btnWrapper.appendChild(leftBtn);
-               btnWrapper.appendChild(rightBtn);
-               productCol.appendChild(btnWrapper);
-               
+                //buttons + counter
+                const btnWrapper = document.createElement('div');
+                btnWrapper.className = 'btnWrapper';
 
-
-                productRow.appendChild(productCol);
+                const leftBtn = document.createElement('button');
+                leftBtn.className = 'plusMinusButton';
+                leftBtn.textContent = '+';
                 
-                currentProductIndex++;
+                const rightBtn = document.createElement('button');
+                rightBtn.className = 'plusMinusButton';
+                rightBtn.textContent = '-';
+
+                const counter = document.createElement('input');
+                counter.className = 'counter';
+                counter.type = 'number';
+                counter.placeholder = '1';
+
+                //add to shopping cart button
+                const addBtn = document.createElement('button');
+                addBtn.className = 'addBtn';
+                addBtn.textContent = 'add to Cart';
+                
+
+                
+                btnWrapper.appendChild(leftBtn);
+                btnWrapper.appendChild(rightBtn);
+                btnWrapper.appendChild(counter);
+
+                prodCol.appendChild(btnWrapper);
+                prodCol.appendChild(addBtn);
+
+
+                prodRow.appendChild(prodCol);
+
+                productIndex ++;
             }
         }
-        productsContainer.appendChild(productRow);
+        prodContainer.appendChild(prodRow);
     }
 }
 
-function create_buttons(icon){
-    const button = document.createElement('button');
-    button.className = 'plusMinusButton';
-    const i = document.createElement('i');
-    i.className = `fa-solid ${icon}`;
-
-    button.appendChild(i);
-    return button;
-}
-
-document.addEventListener("DOMContentLoaded", load_products);
+document.addEventListener("DOMContentLoaded",load_product_card);
