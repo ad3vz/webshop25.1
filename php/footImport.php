@@ -1,0 +1,1 @@
+<script src="../extern/bootstrap/js/bootstrap.bundle.min.js"></script>

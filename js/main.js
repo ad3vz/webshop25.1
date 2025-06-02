@@ -1,6 +1,4 @@
-import { products } from './database.js';
-
-function load_product_card(){
+function load_product_card(products){
 
     //products container
     const prodContainer = document.getElementById('product-container');
@@ -18,13 +16,13 @@ function load_product_card(){
 
                 //col for ONE product
                 const prodCol = document.createElement('div');
-                prodCol.className = 'col-12 col-sm-4 product-card-col';
+                prodCol.className = 'col-12 col-sm-6 col-md-4 product-card-col';
 
                 //picture
                 const imgWrapper = document.createElement('div');
                 imgWrapper.className = 'imgWrapper';
                 const prodImg = document.createElement('img');
-                prodImg.src = product.image;
+                prodImg.src = product.imagepath;
                 imgWrapper.appendChild(prodImg);
                 prodCol.appendChild(imgWrapper);
 
@@ -35,22 +33,38 @@ function load_product_card(){
                 const leftBtn = document.createElement('button');
                 leftBtn.className = 'plusMinusButton';
                 leftBtn.textContent = '+';
+                console.log(leftBtn.id);
+
+                leftBtn.addEventListener('click', () => {
+                    counter.value = parseInt(counter.value) + 1;
+                });
                 
                 const rightBtn = document.createElement('button');
                 rightBtn.className = 'plusMinusButton';
                 rightBtn.textContent = '-';
 
+                rightBtn.addEventListener('click', ()=> {
+                    if(parseInt(counter.value) > 1){
+                        counter.value = parseInt(counter.value) - 1;
+                    }
+                })
+
                 const counter = document.createElement('input');
-                counter.className = 'counter';
                 counter.type = 'number';
-                counter.placeholder = '1';
+                counter.className = 'counter';
+                counter.value = 1;
+                counter.min = 1;
+                
 
                 //add to shopping cart button
                 const addBtn = document.createElement('button');
                 addBtn.className = 'addBtn';
                 addBtn.textContent = 'add to Cart';
-                
 
+                //Event-Listener um 
+                // addBtn.addEventListener('click', ()=> {
+
+                // })
                 
                 btnWrapper.appendChild(leftBtn);
                 btnWrapper.appendChild(rightBtn);
@@ -69,4 +83,8 @@ function load_product_card(){
     }
 }
 
-document.addEventListener("DOMContentLoaded",load_product_card);
+document.addEventListener("DOMContentLoaded", ()=>{
+    fetch('/webshop25.1/php/getProducts.php')
+    .then(response => response.json())
+    .then(products => load_product_card(products));
+});
